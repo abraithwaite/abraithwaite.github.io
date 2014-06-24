@@ -1,0 +1,11 @@
+# Site settings
+title: "Hello internet"
+email: asbraithwaite(ɐ)gmail.com
+description: "An exercise in documentation."
+baseurl: ""
+url: "http://abraithwaite.github.io"
+username: abraithwaite
+
+# Build settings
+markdown: kramdown
+permalink: pretty
