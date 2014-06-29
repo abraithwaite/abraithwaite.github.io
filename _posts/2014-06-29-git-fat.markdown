@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "Git-fat"
+date:   2014-06-29 00:45:00
+categories: python git
+---
+
+I spent a good amount of time cleaning up [git-fat](https://github.com/cyaninc/git-fat)
+this weekend.  I finally got around to finishing the backend interface to enable multiple
+backend implementations.  Now it's much nicer to add another transport medium than it was
+when I first added HTTP as a backend.  Additionally, having an interface made testing quite
+a bit nicer since I can now use the `copy` local backend instead of configuring rsync on
+the host I'm testing on.
+
+Another thing I added which I think absolutely every software project should have is static
+analysis testing with flake8 and pylint.  My pull request is still open for the original
+git-fat by jedbrown, but I don't think he'll merge it since I break some compatabilities,
+(e.g. requiring 2.7 by using argparse over optparse which isn't in 2.5 and 2.6).
+
+It still needs more testing and the coverage is a little low, but at least the test
+infastructure is in place and ready to be used.
+
