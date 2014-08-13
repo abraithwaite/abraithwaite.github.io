@@ -25,10 +25,11 @@ It got me going in the right direction, which is all I needed to get it to work.
 
 It's even much simpler than the original script, although the original did more
 than just build the kernel.  Running this script twice in a row compiling for
-x86\_64 with the same libraries (and versions) installed should in the same
-sha256 hashes.  I tried it on two different machines and a virtual machine after
-updating my packages to the most recent versions.  Next I'll try some configs
-other than allnoconfig, but it was just convenient and fastest to compile.
+x86\_64 with the same libraries (and versions) installed should result in the
+same sha256 hashes.  I tried it on two different machines and a virtual machine
+after updating my packages to the most recent versions.  Next I'll try some
+configs other than allnoconfig, but it was just convenient and fastest to
+compile.
 
 [1] http://lwn.net/Articles/437864/
 
