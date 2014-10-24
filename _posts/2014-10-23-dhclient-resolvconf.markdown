@@ -10,11 +10,11 @@ by the lack of good documentation and the inability to narrow search results
 due to broad search terms.  Additionally, it was made worse by the apparent
 lack of understanding surrounding how these programs interact.
 
-The problem had to do with the way that DNS is handled on linux systems:
-`/etc/resolv.conf` This contains the nameservers glibc uses when calling
-getaddrinfo in socket programming.  It's an interesting file not because of
-it's function though, but because of how many programs would like to modify it:
-dnsmasq, bind, dhclient, vpns, proxies, etc.  This is the reason
+The problem had to do with the way that DNS resolution is handled on linux
+systems: `/etc/resolv.conf` This file contains the nameservers glibc uses when
+calling `getaddrinfo` in socket programming.  It's an interesting file not
+because of its purpose though, but because of how many programs would like to
+modify it: dnsmasq, bind, dhclient, vpns, proxies, etc.  This is the reason
 `/sbin/resolvconf` (the script) was written.
 
 From the resolvconf man page:
@@ -28,14 +28,16 @@ From the resolvconf man page:
 
 Now, the primary program using resolvconf, at least for Ubuntu, is generally
 going to be dhclient.  dhclient doesn't use it directly though.  In fact,
-dhclient has dhclient-script which calls hooks to update system configuration.
-dhclient-script was (probably?) written before resolvconf though so
-dhclient-script implements it's own function to update `/etc/resolv.conf`.
+dhclient has "dhclient-script" which calls hooks to update system
+configuration.  dhclient-script was (probably?) written before resolvconf
+though so dhclient-script implements it's own function to update
+`/etc/resolv.conf`.
 
 To get around dhclient-script's built-in update function (`make_resolv_conf`),
 the resolvconf package provides a dhclient hook
 (`/etc/dhcp/dhclient-enter-hooks.d/resolvconf`) which overrides the default
 dhclient-script implementation and calls resolvconf instead.  So far, so good.
+(Note: I didn't know this up front).
 
 Now, onto my specific issue. It's common to run a private DNS server in cloud
 deployments so you have complete flexibility when it comes to DNS.  However,
@@ -44,18 +46,17 @@ now you have to concern oneself with maintaining each instances nameservers.
 search](https://encrypted.google.com/search?q=set+nameserver+ubuntu) on how to
 add nameservers to an Ubuntu server.  Among the results:
 
-- Write them directly to resolv.conf
-- Add the servers to /etc/resolv.conf.d/{base,head,tail}
-- Modify /etc/network/interfaces/ to add the servers for each interface
-- Add them to dhclient.conf
-- Configure dhclient hooks to do it
+- [Write them directly to resolv.conf](http://ubuntuforums.org/showthread.php?t=1972424)
+- [Add the servers to /etc/resolv.conf.d/{base,head,tail}](http://ubuntuforums.org/showthread.php?t=2078398)
+- [Modify /etc/network/interfaces](http://askubuntu.com/questions/346838/how-do-i-configure-my-dns-settings-in-ubuntu-server)
+- [Add them to dhclient.conf](https://developers.google.com/speed/public-dns/docs/using)
 
-Knowing about resolvconf, I read the manual and figure out that it suggests to
-use either dhclient.conf or `/etc/network/interfaces` to make the changes to the
-file.  Since this is a cloud deployment, I didn't want to make the changes to
-/etc/network/interfaces because it requires running ifup / ifdown.  Not good
-when you're doing everything remotely, either through configuration management
-or ssh.  So I go with dhclient.conf.
+Knowing about resolvconf, I read the manual and figured out that it suggests to
+use either dhclient.conf or `/etc/network/interfaces` to make the changes to
+the file.  Since this is a cloud deployment, I didn't want to make the changes
+to `/etc/network/interfaces` because that requires running ifup / ifdown.  Not
+good when you're doing everything remotely through either configuration
+management or ssh.  So I go with dhclient.conf.
 
 So I make the changes and run `dhclient -x -pf /var/run/dhclient.eth0.pid` to
 stop dhclient without releasing the lease and then restart it with the same
