@@ -114,8 +114,12 @@ spending too much time looking for how others manage this, I found nothing.
 
 What's more surprising is that `resolvconf --disable-updates` wasn't suggested
 anywhere I looked.  I definitely read the man pages, but it wasn't clear that
-this was the best way to accomplish what I was looking for.
+this was the best way to accomplish what I was looking for.  I'm still unsure
+about why `dhclient -x` caused a release, but I didn't see any unusual hooks
+installed on the server (or perhaps I'm not looking in the right place).
 
 [resolvconf](https://alioth.debian.org/projects/resolvconf/)
+
 [Ubuntu bug report](https://bugs.launchpad.net/ubuntu/+source/resolvconf/+bug/1385010)
+
 [dhclient](https://www.isc.org/downloads/DHCP/)
