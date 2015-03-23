@@ -32,7 +32,8 @@ tearing on the LCD.  My immediate first thought was that I had touched
 something I shouldn't have, but that wasn't the case.  After running it for a
 while, it just stopped occurring (perhaps it was the software update, but I
 didn't have to reboot so I kind of doubt it).  I wish I had taken a quick video
-of it; if it happens again I will.
+of it; if it happens again I will. [1]
+
 
 This computer will be my go-to project board from now on.  I knew it would be
 from the instant I saw it. Because the novena came with a
@@ -49,6 +50,11 @@ excited to get this up and running.
 
 Thanks [Bunnie](https://twitter.com/bunniestudios) and
 [Xobs](https://twitter.com/xobs) for organizing this awesome project!
+
+[1] Update (2015-03-22): I took a [video](https://www.youtube.com/watch?v=10GLUDNNwrs)
+figured out the issue.  It turns out the video cable runs right under the high
+speed expansion and that was likely causing some EMI.  Moving the cable out
+from underneath the mainboard solved the problem :-)
 
 ![Novena Case]({{ site.url }}/images/novena1.jpg)
 ![Novena Closeup]({{ site.url }}/images/novena2.jpg)
