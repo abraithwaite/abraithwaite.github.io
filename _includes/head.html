@@ -11,6 +11,9 @@
     {% if site.mixpanel_analytics and jekyll.environment == 'production' %}
     {% include mixpanel.html %}
     {% endif %}
+    {% if site.quantcast_analytics and jekyll.environment == 'production' %}
+    {% include quantcast.html %}
+    {% endif %}
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
