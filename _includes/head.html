@@ -17,6 +17,9 @@
     {% if site.segment_analytics and jekyll.environment == 'production' %}
     {% include segment.html %}
     {% endif %}
+    {% if site.yandex_analytics and jekyll.environment == 'production' %}
+    {% include yandex.html %}
+    {% endif %}
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
