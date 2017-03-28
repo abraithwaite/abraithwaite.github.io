@@ -9,3 +9,5 @@ username: abraithwaite
 # Build settings
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+
+google_analytics: UA-96367067-1
