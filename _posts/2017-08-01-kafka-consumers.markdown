@@ -123,6 +123,9 @@ any of my contact points.
 Some links:
 
 https://kafka.apache.org/documentation/#design
+
 http://duartes.org/gustavo/blog/post/page-cache-the-affair-between-memory-and-files/
+
 https://www.thomas-krenn.com/en/wiki/Linux_Page_Cache_Basics
+
 https://kafka-summit.org/events/kafka-summit-sf/
