@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Your Kafka Consumers: A Metamorphosis"
-date:   2015-07-31 23:59:59
+date:   2017-07-31 23:59:59
 categories: kafka linux operations
 ---
 
