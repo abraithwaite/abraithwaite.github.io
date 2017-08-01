@@ -10,7 +10,4 @@ username: abraithwaite
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
 
-google_analytics: UA-96367067-1
-quantcast_analytics: p-Rjzx13NLfLJZT
 segment_analytics: jqZVsJ0WxrT7aAUjaa01cOIOHAucVLIs
-yandex_analytics: 43802359
