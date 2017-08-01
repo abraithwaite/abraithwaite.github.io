@@ -5,8 +5,6 @@ date:   2015-07-31 23:59:59
 categories: kafka linux operations
 ---
 
-# Your Kafka Consumers: A Metamorphosis
-
 It's 4am Saturday.  You jolt awake to the blaring of an air raid siren.  You
 make a mental note to change your pagerduty ringtone before logging in to see
 that the data pipeline is fucked.  While working to find the root cause of the
@@ -47,7 +45,7 @@ maintaining a healthy Kafka cluster.*
 Isolating Kafka to dedicated machines is sometimes enough, but oftentimes it
 is not.  The other big pagecache polluter are the Kafka consumers themselves.
 
-## Consumers effect on the pagecache
+## How consumers affect the pagecache
 
 Hopefully it doesn't come as a surprise that the number one offenders to
 pagecache cache misses are consumers.  Just a few slow consumers which
