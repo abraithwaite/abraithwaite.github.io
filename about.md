@@ -4,10 +4,15 @@ title: About
 permalink: /about/
 ---
 
-I write code.  Sometimes I post it on my [github](https://github.com/abraithwaite).
+I am a Software Engineer who particularly enjoys building highly scalable
+applications on top of distributed systems.  I write code and sometimes I post
+it to [github](https://github.com/abraithwaite).
 
-I'm a fan of writing and running good software.  My particular areas of interest are
-distributed systems and security.
+At Cloudflare, I played a key role in scaling the data pipeline from 1.5M
+events per second to over 8M events per second using Kafka, Golang and various
+databases.
+
+Now I'm at Segment helping build out the data infrastructure.
 
 The views and opinions expressed on this blog are soley my own. These views
 and opinions do not necessarily represent those of my employer.
