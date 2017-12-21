@@ -14,7 +14,7 @@ databases.
 
 Now I'm at Segment helping build out the data infrastructure.
 
-The views and opinions expressed on this blog are soley my own. These views
+The views and opinions expressed on this blog are solely my own. These views
 and opinions do not necessarily represent those of my employer.
 
 Except where otherwise noted, content on this site is licensed under a
